@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026 전남 IB 콘퍼런스</title>
+<meta name="description" content="2026 전남 IB 콘퍼런스 · AI 시대, 더 빛날 IB의 교육 가치 · 참가 신청과 강의자료">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  --navy:#0F2557; --blue:#1E4FD8; --blue-soft:#9DB2E0; --sky:#F3F7FF; --sky2:#EAF1FF; --sky3:#F7FAFF;
+  --line:#D9E3F7; --line2:#E3EBFA; --ink:#1B2333; --ink2:#39445A; --muted:#5A6478; --white:#FFFFFF;
+  --warn-bg:#FFF1D6; --warn-ink:#7A4A00; --warn-line:#F1C27D; --red:#B4380F; --red-bg:#FFE8E0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Noto Sans KR',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-text-size-adjust:100%;word-break:keep-all;overflow-wrap:anywhere}
+a{color:var(--blue)} a:hover{color:var(--navy)}
+button,input,textarea{font-family:inherit;font-size:16px}
+button{cursor:pointer}
+button:disabled{cursor:not-allowed}
+:focus-visible{outline:3px solid #7FA3F0;outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.narrow{max-width:860px;margin:0 auto;padding:40px 20px 80px;display:flex;flex-direction:column;gap:20px}
+.page-bg{background:var(--sky);min-height:70vh}
+.eyebrow{margin:0;font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--blue)}
+h1.page{margin:4px 0 0;font-size:30px;font-weight:900;color:var(--navy)}
+h2.sec{margin:4px 0 20px;font-size:30px;font-weight:900;color:var(--navy)}
+.muted{color:var(--muted)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:46px;padding:12px 24px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;border:1px solid var(--blue);background:var(--blue);color:var(--white)}
+.btn:hover{background:#1A45BE;color:var(--white)}
+.btn.ghost{background:var(--white);color:var(--blue)}
+.btn.ghost:hover{background:var(--sky2);color:var(--navy)}
+.btn.danger{background:var(--white);color:var(--red);border-color:#E8B4A2}
+.btn.danger.solid{background:var(--red);color:var(--white);border-color:var(--red)}
+.btn:disabled{background:var(--blue-soft);border-color:var(--blue-soft);color:var(--white)}
+.linkbtn{background:none;border:0;color:var(--blue);font-weight:700;padding:8px;min-height:44px;font-size:14px}
+.chip{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;white-space:nowrap}
+.lv-초{background:#E0F2FE;color:#075985}.lv-중{background:#DBEAFE;color:#1E40AF}.lv-고{background:#E0E7FF;color:#312E81}
+.lv-공통{background:#EEF2F8;color:#334155}.lv-연구회·IBEC{background:#DDF4F7;color:#155E75}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label,.legend{font-weight:700;font-size:15px}
+.req{color:#C2410C}
+.input{font-size:16px;padding:12px 14px;border:1px solid #C9D7F2;border-radius:10px;min-height:46px;width:100%;background:var(--white);color:var(--ink)}
+.input:read-only{background:#F1F4FA;color:var(--ink2)}
+textarea.input{resize:vertical;min-height:110px}
+.hint{font-size:13px;color:var(--muted)}
+.banner{border-radius:14px;padding:14px 18px;font-size:15px;font-weight:500;border:1px solid}
+.b-open{background:var(--sky2);color:var(--navy);border-color:#C9D7F2}
+.b-late{background:var(--warn-bg);color:var(--warn-ink);border-color:var(--warn-line)}
+.b-closed,.b-before{background:#EEF2F8;color:var(--ink2);border-color:#D5DAE3}
+.err{background:#FFF0EC;color:#8A2A0A;border:1px solid #F3C2B2;border-radius:12px;padding:12px 16px;font-size:15px}
+.dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:8px 18px;font-size:15px}
+.dl dt{font-weight:700;color:var(--blue)} .dl dd{margin:0}
+
+/* 상단 바 (스크롤해도 고정) */
+.top{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-top:10px;padding-bottom:10px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy)}
+.brand img{height:30px;width:auto;display:block}
+.brand span{font-weight:700;font-size:16px}
+.brand img + span{border-left:1px solid var(--line);padding-left:12px}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:2px;font-size:15px}
+.nav a{color:var(--ink);text-decoration:none;padding:10px 12px;border-bottom:2px solid transparent}
+.nav a.on{color:var(--blue);font-weight:700;border-bottom-color:var(--blue)}
+
+/* 메인 */
+.hero{background:var(--sky);border-bottom:1px solid var(--line2)}
+.hero .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:48px;padding-top:56px;padding-bottom:64px}
+.hero-text{flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.pill{align-self:flex-start;font-size:14px;font-weight:700;padding:6px 14px;border-radius:999px}
+.pill.open{background:var(--blue);color:var(--white)} .pill.late{background:var(--warn-bg);color:var(--warn-ink)}
+.pill.closed,.pill.before{background:#E6E9EF;color:var(--ink2)}
+.hero h1{margin:0;font-size:clamp(34px,5vw,54px);font-weight:900;line-height:1.2;color:var(--navy);letter-spacing:-.02em;word-break:keep-all}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.facts{margin:6px 0 0;display:grid;grid-template-columns:max-content 1fr;gap:10px 18px;font-size:16px;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.facts dt{font-weight:700;color:var(--blue)} .facts dd{margin:0}
+.hero-img{flex:1 1 420px;min-width:0}
+.frame{background:var(--white);padding:10px;border-radius:24px;box-shadow:0 12px 32px rgba(15,37,87,.14);border:1px solid var(--line);position:relative}
+.frame .ph{position:relative;border-radius:16px;overflow:hidden}
+.frame img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.frame .tint{position:absolute;inset:0;pointer-events:none}
+.tone-blue .tint{background:rgba(30,79,216,.18);mix-blend-mode:multiply}
+.tone-mono img{filter:grayscale(1) contrast(1.05)}
+.tone-mono .tint{background:#1E4FD8;mix-blend-mode:color;opacity:.55}
+.sched{list-style:none;margin:0;padding:0;border-top:2px solid var(--navy)}
+.sched li{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;padding:16px 4px;border-bottom:1px solid var(--line2)}
+.sched li.key{background:var(--sky)}
+.sched .t{flex:0 0 130px;font-weight:700;color:var(--blue)}
+.sched .c{flex:1 1 300px;min-width:0}
+.sched .rest{color:var(--muted)}
+.spk{display:flex;align-items:center;gap:16px}
+.avatar{flex:0 0 60px;width:60px;height:60px;border-radius:50%;border:3px solid var(--blue);background:#DCE7FD;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--blue);font-size:20px;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.filters button{font-size:14px;font-weight:700;padding:9px 16px;min-height:44px;border-radius:999px;border:1px solid #C9D7F2;background:var(--white);color:var(--blue)}
+.filters button.on{background:var(--blue);border-color:var(--blue);color:var(--white)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;align-items:start}
+.pcard{background:var(--white);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.pcard > button{display:block;width:100%;text-align:left;color:inherit;background:var(--white);border:0;padding:20px}
+.pcard .meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:10px}
+.pcard .code{font-weight:900;color:var(--blue)}
+.pcard .time{font-size:13px;color:var(--muted)}
+.pcard .ttl{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--navy)}
+.pcard .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:12px;font-size:14px;color:var(--muted)}
+.pcard .tog{color:var(--blue);font-weight:700;white-space:nowrap}
+.pcard .more{border-top:1px solid var(--line2);background:var(--sky3);padding:18px 20px 20px;display:flex;flex-direction:column;gap:12px}
+.notice{list-style:none;margin:0;padding:0;border-top:2px solid var(--navy)}
+.notice li{padding:18px 4px;border-bottom:1px solid var(--line2)}
+.notice li.imp{background:var(--sky)}
+.notice .h{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-weight:700;color:var(--navy)}
+.notice .d{margin-left:auto;font-weight:400;font-size:13px;color:var(--muted)}
+.notice .b{margin:6px 0 0;font-size:15px;color:var(--ink2);white-space:pre-line}
+.tag-imp{font-size:12px;padding:2px 8px;border-radius:6px;background:var(--blue);color:var(--white)}
+.tag-new{font-size:11px;padding:1px 6px;border-radius:4px;background:var(--red-bg);color:var(--red);font-weight:700}
+.section{padding-top:72px;padding-bottom:24px}
+
+/* 신청 */
+.howto{background:var(--sky);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.howto ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:15px;color:var(--ink2)}
+.roles{display:flex;flex-wrap:wrap;gap:8px}
+.roles label{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;min-height:46px;border-radius:10px;border:1px solid #C9D7F2;background:var(--white);cursor:pointer;font-size:15px}
+.roles label.on{border-color:var(--blue);background:var(--sky2);font-weight:700;color:var(--navy)}
+.roles input,.alt input,.consent input{accent-color:var(--blue);width:18px;height:18px;margin:0}
+.slot{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.slot .hd{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 16px;background:var(--navy);color:var(--white)}
+.slot .hd.soft{background:var(--sky2);color:var(--navy)}
+.row{display:flex;align-items:center;gap:14px;width:100%;text-align:left;color:inherit;padding:14px 16px;min-height:62px;border:0;border-top:1px solid var(--line2);background:var(--white)}
+.row:first-child{border-top:0}
+.row.on{background:var(--sky)}
+.row:disabled{opacity:.45}
+.rank{flex:0 0 32px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;border:2px solid #C9D7F2;color:var(--white);background:var(--white)}
+.row.on .rank{background:var(--blue);border-color:var(--blue)}
+.box{flex:0 0 32px;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;border:2px solid var(--blue);color:var(--white);background:var(--white)}
+.row.on .box{background:var(--blue)}
+.row .main{flex:1 1 auto;min-width:0}
+.row .l1{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.row .l1 strong{color:var(--blue)}
+.row .l1 .tt{font-weight:700;color:var(--navy)}
+.row .l2{display:block;font-size:14px;color:var(--muted)}
+.slot .ft{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:8px 16px;background:var(--sky3);border-top:1px solid var(--line2);font-size:14px}
+.full-wrap{border:2px solid var(--line);border-radius:16px;overflow:hidden}
+.full-wrap.on{border-color:var(--blue)}
+.alts{border:1px solid var(--warn-line);background:#FFFBF2;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.alt{display:flex;align-items:center;gap:10px;padding:10px 12px;min-height:46px;border-radius:10px;cursor:pointer;border:1px solid #F1DDB5;font-size:15px}
+.alt.on{background:var(--white);border-color:var(--blue)}
+.ask{border:2px solid var(--blue);border-radius:14px;padding:16px 18px;background:var(--white);display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.consent{display:flex;align-items:center;gap:10px;font-weight:700;cursor:pointer;min-height:44px}
+.terms{margin:0;padding:14px 18px 14px 34px;background:var(--sky3);border-radius:12px;font-size:14px;color:var(--ink2);display:flex;flex-direction:column;gap:4px}
+.submit-area{display:flex;flex-direction:column;align-items:center;gap:10px}
+.submit-area .btn{min-width:240px;padding:16px 48px;font-size:17px}
+.lock{text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;padding:40px 28px}
+.lock p{margin:0}
+.res{background:var(--white);border:1px solid var(--line);border-left:6px solid var(--blue);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:8px}
+.resbig{background:var(--navy);color:var(--white);border-radius:20px;padding:24px 26px;display:flex;flex-direction:column;gap:4px}
+.resbig .s{color:#C9D5EE;font-size:15px;margin:0}
+.mgroup{background:var(--white);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.mgroup .hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:14px 18px;border-bottom:1px solid var(--line2)}
+.mfile{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:12px 18px;border-top:1px solid #F0F4FC}
+.mfile:first-of-type{border-top:0}
+.mfile .nm{flex:1 1 240px;min-width:0;word-break:break-all}
+.dl-btn{background:var(--sky2);color:var(--blue);text-decoration:none;font-weight:700;font-size:14px;padding:10px 16px;border-radius:10px;white-space:nowrap}
+
+/* 하단 */
+.foot-logos{border-top:1px solid var(--line);background:var(--white)}
+.foot-logos .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;padding-top:40px;padding-bottom:40px}
+.foot-logos img{height:104px;width:auto;max-width:100%;display:block;object-fit:contain}
+.foot-bar{background:var(--navy);color:#C9D5EE;font-size:14px}
+.foot-bar .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding-top:18px;padding-bottom:18px}
+.foot-bar strong{color:var(--white)}
+.loading{padding:120px 20px;text-align:center;color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:640px){
+  .hero .wrap{gap:28px;padding-top:32px;padding-bottom:40px}
+  .card{padding:20px}
+  .sched .t{flex-basis:100%}
+  .foot-logos img{height:80px}
+  .brand span{font-size:15px}
+  .nav a{padding:8px 9px;font-size:14px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#/" id="brand"><span>2026 전남 IB 콘퍼런스</span></a>
+    <nav class="nav" aria-label="주요 메뉴" id="nav"></nav>
+  </div>
+</header>
+<main id="app" aria-live="polite"><div class="loading">불러오는 중입니다…</div></main>
+<footer id="foot"></footer>
+<noscript><p style="padding:20px">이 사이트는 자바스크립트가 필요합니다.</p></noscript>
+
+<script>
+/* ============================================================
+ * 2026 전남 IB 콘퍼런스 · 화면 (GitHub Pages)
+ * 아래 API_URL에 Apps Script 웹 앱 주소(…/exec)를 넣으세요.
+ * ============================================================ */
+var API_URL = 'https://script.google.com/macros/s/AKfycbwwEF4qb5iilUDyY_WQdFnk0Xz1I06rUxDlEHgCwQucQS2Es5pv6DbuHKm5CqpvPDJF/exec';
+
+var LATE = new URLSearchParams(location.search).get('late') || '';
+var S = {
+  site: null, error: '', route: 'home', query: {},
+  home: { filter: '전체', open: {} },
+  apply: null,          // 신청 화면 상태
+  check: { step: 'lookup', name: '', phone: '', record: null, busy: false, error: '', endText: '' },
+  result: { step: 'lookup', name: '', phone: '', data: null, busy: false, error: '' }
+};
+var CIRCLED = ['①', '②', '③'];
+var ROLES = ['교사', '교감', '교장', '교육전문직원'];
+
+/* ---------- 도구 ---------- */
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+function imgSrc(id, w) { return 'https://lh3.googleusercontent.com/d/' + encodeURIComponent(id) + '=w' + (w || 1600); }
+function imgTag(id, alt, w, extra) {
+  return '<img src="' + imgSrc(id, w) + '" data-fid="' + esc(id) + '" data-w="' + (w || 1600) + '" alt="' + esc(alt) + '" ' + (extra || '') + '>';
+}
+document.addEventListener('error', function (e) {   // 드라이브 이미지 주소가 막히면 다른 주소로 다시 시도
+  var t = e.target;
+  if (t && t.tagName === 'IMG' && t.dataset.fid && !t.dataset.retry) {
+    t.dataset.retry = '1';
+    t.src = 'https://drive.google.com/thumbnail?id=' + encodeURIComponent(t.dataset.fid) + '&sz=w' + t.dataset.w;
+  }
+}, true);
+function lv(level) { return '<span class="chip lv-' + esc(level || '공통') + '">' + esc(level || '공통') + '</span>'; }
+function daysLeft(iso) { if (!iso) return null; var d = Math.ceil((new Date(iso) - new Date()) / 86400000); return d; }
+function sessionsBy(slot) { return (S.site.sessions || []).filter(function (s) { return s.slot === slot; }); }
+function findSession(code) { return (S.site.sessions || []).filter(function (s) { return s.code === code; })[0]; }
+function whoOf(s) { return [s.org, s.speaker].filter(Boolean).join(' '); }
+function fmtSize(n) { if (!n) return ''; if (n < 1024 * 1024) return Math.max(1, Math.round(n / 1024)) + 'KB'; return (n / 1048576).toFixed(1) + 'MB'; }
+function typeOf(f) {
+  var m = f.mime || '', n = (f.name || '').toLowerCase();
+  if (/pdf/.test(m) || /\.pdf$/.test(n)) return 'PDF';
+  if (/hwp/.test(n)) return '한글';
+  if (/presentation|powerpoint/.test(m) || /\.pptx?$/.test(n)) return '발표자료';
+  if (/document|word/.test(m) || /\.docx?$/.test(n)) return '문서';
+  if (/sheet|excel/.test(m) || /\.xlsx?$/.test(n)) return '표';
+  if (/^image\//.test(m)) return '이미지';
+  if (/zip/.test(m) || /\.zip$/.test(n)) return '압축';
+  return '파일';
+}
+function isNew(iso, days) { if (!iso) return false; var t = new Date(iso); var n = S.site && S.site.now ? new Date(S.site.now) : new Date(); return (n - t) < days * 86400000 && (n - t) >= -86400000; }
+
+/* ---------- 서버 ---------- */
+function apiReady() { return API_URL && API_URL.indexOf('http') === 0; }
+function apiGet() {
+  return fetch(API_URL + '?action=site&late=' + encodeURIComponent(LATE) + '&t=' + Date.now()).then(function (r) { return r.json(); });
+}
+function apiPost(action, payload) {
+  var body = Object.assign({ action: action, late: LATE }, payload);
+  return fetch(API_URL, { method: 'POST', body: JSON.stringify(body) })   // text/plain: 사전 확인 요청 없이 전송
+    .then(function (r) { return r.json(); })
+    .catch(function () { return { ok: false, message: '네트워크 오류입니다. 인터넷 연결을 확인하고 다시 시도해 주세요.' }; });
+}
+
+/* ---------- 경로 ---------- */
+function parseRoute() {
+  var h = location.hash.replace(/^#\/?/, '');
+  var parts = h.split('?');
+  var name = parts[0] || 'home';
+  var q = {};
+  if (parts[1]) parts[1].split('&').forEach(function (kv) { var p = kv.split('='); q[decodeURIComponent(p[0])] = decodeURIComponent(p[1] || ''); });
+  if (['home', 'apply', 'check', 'result', 'materials'].indexOf(name) < 0) {
+    if (name === 'program' || name === 'info') { q.scroll = name; }
+    name = 'home';
+  }
+  S.route = name; S.query = q;
+}
+window.addEventListener('hashchange', function () { parseRoute(); onRoute(); render(); window.scrollTo(0, 0); afterRender(); });
+
+function onRoute() {
+  if (S.route === 'apply') {
+    if (!S.apply || S.apply.done) S.apply = newApply();
+    if (S.query.pick) preselect(S.query.pick);
+  }
+}
+
+/* ---------- 상단 바 · 하단 ---------- */
+function renderChrome() {
+  var site = S.site, cfg = site ? site.config : {};
+  var brand = document.getElementById('brand');
+  var logo = site && site.images && site.images.headerLogo;
+  brand.innerHTML = (logo ? imgTag(logo.id, '전남광주통합특별시교육청', 600) : '') + '<span>' + esc(cfg.name || '2026 전남 IB 콘퍼런스') + '</span>';
+  var items = [['home', '#/', '컨퍼런스 정보'], ['apply', '#/apply', '참가신청'], ['check', '#/check', '신청확인']];
+  if (site && site.resultOpen) items.push(['result', '#/result', '참가신청결과확인']);
+  items.push(['materials', '#/materials', '강의자료']);
+  document.getElementById('nav').innerHTML = items.map(function (it) {
+    return '<a href="' + it[1] + '"' + (S.route === it[0] ? ' class="on" aria-current="page"' : '') + '>' + it[2] + '</a>';
+  }).join('');
+  if (!site) { document.getElementById('foot').innerHTML = ''; return; }
+  var logos = (site.images.footerLogos || []).map(function (l) { return imgTag(l.id, l.name.replace(/\.[^.]+$/, ''), 900); }).join('');
+  document.getElementById('foot').innerHTML =
+    (logos ? '<div class="foot-logos"><div class="wrap">' + logos + '</div></div>' : '') +
+    '<div class="foot-bar"><div class="wrap"><strong>주최 : ' + esc(cfg.host) + '</strong>' +
+    (cfg.contact ? '<span>문의 : ' + esc(cfg.contact) + '</span>' : '') + '</div></div>';
+  document.title = (S.route === 'home' ? '' : ({ apply: '참가신청', check: '신청확인', result: '참가신청결과확인', materials: '강의자료' }[S.route] + ' · ')) + (cfg.name || '2026 전남 IB 콘퍼런스');
+}
+
+function phaseInfo() {
+  var p = S.site.phase;
+  var d = daysLeft(p.endISO);
+  if (p.state === 'before') return { cls: 'before', pill: '신청 시작 전 · ' + p.startText + '부터 접수', banner: '아직 신청 기간이 아닙니다. ' + p.startText + '부터 신청할 수 있습니다.' };
+  if (p.state === 'late') return { cls: 'late', pill: '추가 접수 중 · ' + p.lateEndText + '까지', banner: (p.viaLink ? '전용 링크로 들어오신 추가 접수입니다. ' : '추가 접수 중입니다. ') + p.lateEndText + '까지 신청할 수 있습니다.' };
+  if (p.state === 'closed') return { cls: 'closed', pill: '참가 신청 마감', banner: '참가 신청이 마감되었습니다.' };
+  var tail = p.endText ? ' · ' + p.endText + ' 마감' + (d != null && d >= 0 ? (d === 0 ? ' (오늘 마감)' : ' (D-' + d + ')') : '') : '';
+  return { cls: 'open', pill: '참가 신청 접수 중' + (d != null && d >= 0 ? (d === 0 ? ' · 오늘 마감' : ' · 마감까지 D-' + d) : ''), banner: '참가 신청 접수 중입니다' + tail };
+}
+function canApply() { var s = S.site.phase.state; return s === 'open' || s === 'late'; }
+
+/* ---------- 메인 ---------- */
+function viewHome() {
+  var site = S.site, c = site.config, ph = phaseInfo(), p = site.phase;
+  var period = p.startText && p.endText ? p.startText + ' ~ ' + p.endText : (p.endText ? '~ ' + p.endText : '추후 안내');
+  var theme = esc(c.theme || '').replace(/,\s*/, ',<br>').replace(/IB/, '<em>IB</em>');
+  var main = site.images.main;
+  var tone = c.tone === '푸른 톤' ? 'tone-blue' : (c.tone === '모노 블루' ? 'tone-mono' : '');
+  var focus = { '위': 'top', '아래': 'bottom' }[c.focus] || 'center';
+  var html = '';
+  html += '<section class="hero" id="info"><div class="wrap"><div class="hero-text">' +
+    '<span class="pill ' + ph.cls + '">' + esc(ph.pill) + '</span>' +
+    '<p style="margin:0;font-size:17px;font-weight:700;color:var(--blue)">' + esc(c.name) + '</p>' +
+    '<h1>' + theme + '</h1>' +
+    '<dl class="facts">' +
+    '<dt>일시</dt><dd>' + esc(c.when) + '</dd>' +
+    '<dt>장소</dt><dd>' + esc(c.where) + '</dd>' +
+    '<dt>대상</dt><dd>' + esc(c.who) + '</dd>' +
+    '<dt>신청기간</dt><dd>' + esc(period) + '</dd>' +
+    '<dt>내용</dt><dd>' + esc(c.content) + '</dd></dl>' +
+    '<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:4px">' +
+    '<a class="btn" href="#/apply">' + (canApply() ? '참가 신청하기' : '참가 신청 안내') + '</a>' +
+    '<a class="btn ghost" href="#/materials">강의자료</a></div></div>';
+  if (main) {
+    html += '<div class="hero-img"><div class="frame ' + tone + '"><div class="ph">' +
+      imgTag(main.id, '콘퍼런스 대표 이미지', 1600, 'style="object-position:' + focus + '"') + '<span class="tint"></span></div></div></div>';
+  }
+  html += '</div></section>';
+
+  // 전체 일정
+  html += '<section class="wrap section"><p class="eyebrow">SCHEDULE</p><h2 class="sec">전체 일정</h2><ol class="sched">';
+  site.schedule.forEach(function (r) {
+    var time = r.start + (r.end ? ' ~ ' + r.end : '');
+    var rest = /휴식/.test(r.kind);
+    if (r.speaker) {
+      var av = r.photo ? imgTag(r.photo, r.speaker + ' 사진', 240) : esc(r.speaker.charAt(0));
+      html += '<li class="key"><span class="t">' + esc(time) + '</span><div class="c spk"><div class="avatar" aria-hidden="' + (r.photo ? 'false' : 'true') + '">' + av + '</div><div style="min-width:0">' +
+        '<p style="margin:0;font-weight:700;color:var(--navy)">' + esc(r.kind) + ' · ' + esc(r.text) + '</p>' +
+        '<p style="margin:0;font-size:15px;color:var(--muted)">' + esc(r.speaker) + (r.affil ? ' (' + esc(r.affil) + ')' : '') + '</p></div></div></li>';
+    } else {
+      var body = rest ? '<span class="rest">' + esc(r.text) + '</span>'
+        : (r.kind && r.kind !== r.text ? '<strong style="color:var(--navy)">' + esc(r.kind) + '</strong> · ' + esc(r.text) : esc(r.text));
+      html += '<li><span class="t">' + esc(time) + '</span><span class="c">' + body + '</span></li>';
+    }
+  });
+  html += '</ol></section>';
+
+  // 프로그램
+  var cards = programCards();
+  var groups = ['전체'];
+  cards.forEach(function (x) { if (groups.indexOf(x.group) < 0) groups.push(x.group); });
+  var f = S.home.filter;
+  html += '<section class="wrap section" id="program"><p class="eyebrow">PROGRAM</p><h2 class="sec" style="margin-bottom:8px">프로그램 세부내용</h2>' +
+    '<p class="muted" style="margin:0 0 20px">카드를 누르면 장소와 세션 소개가 펼쳐집니다.</p>' +
+    '<div class="filters" role="group" aria-label="프로그램 분류">' + groups.map(function (g) {
+      return '<button type="button" data-act="filter" data-v="' + esc(g) + '" class="' + (g === f ? 'on' : '') + '" aria-pressed="' + (g === f) + '">' + esc(g) + '</button>';
+    }).join('') + '</div><div class="grid">';
+  cards.filter(function (x) { return f === '전체' || x.group === f; }).forEach(function (x) {
+    var open = !!S.home.open[x.key];
+    html += '<article class="pcard"><button type="button" data-act="card" data-v="' + esc(x.key) + '" aria-expanded="' + open + '">' +
+      '<span class="meta"><span class="code">' + esc(x.code) + '</span>' + lv(x.level) + '<span class="time">' + esc(x.time) + '</span></span>' +
+      '<span class="ttl">' + esc(x.title) + '</span>' +
+      '<span class="foot"><span>' + esc(x.who) + '</span><span class="tog">' + (open ? '접기 −' : '자세히 +') + '</span></span></button>';
+    if (open) {
+      html += '<div class="more"><dl class="dl" style="font-size:14px;gap:6px 14px">' +
+        '<dt>시간</dt><dd>' + esc(x.time) + '</dd><dt>장소</dt><dd>' + esc(x.place || '추후 안내') + '</dd>' +
+        (x.target ? '<dt>대상</dt><dd>' + esc(x.target) + '</dd>' : '') + '</dl>' +
+        (x.intro ? '<p style="margin:0;font-size:14px;color:var(--ink2);white-space:pre-line">' + esc(x.intro) + '</p>' : '') +
+        (x.pick && canApply() ? '<a class="btn" style="align-self:flex-start;min-height:44px;padding:10px 18px;font-size:14px" href="#/apply?pick=' + encodeURIComponent(x.pick) + '">이 세션 신청하기</a>' : '') +
+        '</div>';
+    }
+    html += '</article>';
+  });
+  html += '</div></section>';
+
+  // 공지
+  if (site.notices.length) {
+    html += '<section class="wrap section" style="padding-bottom:80px"><p class="eyebrow">NOTICE</p><h2 class="sec">유의사항 및 공지</h2><ul class="notice">';
+    site.notices.forEach(function (n) {
+      var nw = n.date && isNew(n.date.replace(/\./g, '-').replace(/\s/g, '') + 'T00:00:00+09:00', 7);
+      html += '<li class="' + (n.important ? 'imp' : '') + '"><p class="h">' + (n.important ? '<span class="tag-imp">중요</span>' : '') + esc(n.title) +
+        (nw ? '<span class="tag-new">NEW</span>' : '') + '<span class="d">' + esc(n.date) + '</span></p>' +
+        (n.body ? '<p class="b">' + esc(n.body) + '</p>' : '') + '</li>';
+    });
+    html += '</ul></section>';
+  } else html += '<div style="height:60px"></div>';
+  return html;
+}
+
+function programCards() {
+  var site = S.site, out = [];
+  var tgt = { '초': '초등', '중': '중등', '고': '고등', '공통': '전 학교급', '연구회·IBEC': '연구회·IBEC' };
+  site.schedule.forEach(function (r) {
+    if (/기조/.test(r.kind)) out.push({ key: 'k-' + r.start, code: '기조강연', group: '기조강연', level: '공통', time: r.start + '~' + r.end,
+      title: r.text, who: r.speaker + (r.affil ? ' · ' + r.affil : ''), place: '', target: '전체 참가자', intro: '', pick: '' });
+  });
+  site.sessions.forEach(function (s) {
+    var slotTxt = s.slot === '연강' ? '연강' : s.slot;
+    out.push({ key: s.code, code: s.code, group: s.group || s.code, level: s.level, time: s.start + '~' + s.end + ' · ' + slotTxt,
+      title: s.title, who: whoOf(s), place: s.place, target: tgt[s.level] || s.level, intro: s.intro, pick: s.code });
+  });
+  site.schedule.forEach(function (r) {
+    if (/라운드/.test(r.kind)) out.push({ key: 'r-' + r.start, code: '라운드테이블', group: '라운드테이블', level: '공통', time: r.start + '~' + r.end,
+      title: r.text, who: '분반별 진행', place: '', target: '전체 참가자', intro: '', pick: '' });
+  });
+  return out;
+}
+
+/* ---------- 참가신청 ---------- */
+function newApply() {
+  return { org: '', role: '', name: '', phone: '', question: '', s1: [], s2: [], full: '', alt1: '', alt2: '',
+    consent: false, terms: false, askFull: '', busy: false, error: '', done: null, edit: null };
+}
+function preselect(code) {
+  var a = S.apply, s = findSession(code);
+  if (!s || a.edit) return;
+  if (s.slot === '연강') { a.full = code; a.s1 = []; a.s2 = []; }
+  else if (s.slot === '1차' && a.s1.indexOf(code) < 0 && !a.full) a.s1 = [code].concat(a.s1).slice(0, 3);
+  else if (s.slot === '2차' && a.s2.indexOf(code) < 0 && !a.full) a.s2 = [code].concat(a.s2).slice(0, 3);
+}
+function missingOf(a) {
+  var m = [];
+  if (!a.org.trim()) m.push('소속');
+  if (!a.role) m.push('직급');
+  if (!a.edit) { if (!a.name.trim()) m.push('성명'); if (a.phone.replace(/\D/g, '').length < 10) m.push('연락처'); }
+  if (a.full) { if (!a.alt1 || !a.alt2) m.push(a.full + ' 대체 희망'); }
+  else { if (!a.s1.length) m.push('1차 1지망'); if (!a.s2.length) m.push('2차 1지망'); }
+  if (!a.consent) m.push('개인정보 동의');
+  return m;
+}
+function slotBox(key, title) {
+  var a = S.apply, picks = a[key], list = sessionsBy(key === 's1' ? '1차' : '2차');
+  var rows = list.map(function (s) {
+    var i = picks.indexOf(s.code), on = i >= 0, full = picks.length >= 3 && !on;
+    return '<button type="button" class="row' + (on ? ' on' : '') + '" data-act="pick" data-k="' + key + '" data-v="' + esc(s.code) + '"' + (full ? ' disabled' : '') + ' aria-pressed="' + on + '">' +
+      '<span class="rank" aria-hidden="true">' + (on ? (i + 1) : '') + '</span><span class="main"><span class="l1"><strong>' + esc(s.code) + '</strong>' + lv(s.level) +
+      '<span class="tt">' + esc(s.short) + '</span></span><span class="l2">' + esc(whoOf(s)) + '</span></span>' +
+      (on ? '<span class="sr">' + (i + 1) + '지망</span>' : '') + '</button>';
+  }).join('');
+  var sum = picks.length ? picks.map(function (c, i) { return CIRCLED[i] + ' ' + c; }).join('  ') : '아직 고르지 않았습니다';
+  return '<div class="slot"><div class="hd"><span style="font-weight:700">' + title + '</span><span style="font-size:14px">선택 ' + picks.length + ' / 3</span></div><div>' + rows + '</div>' +
+    '<div class="ft"><span>내 지망 <strong style="color:var(--navy)">' + esc(sum) + '</strong></span><button type="button" class="linkbtn" data-act="reset" data-k="' + key + '">다시 고르기</button></div></div>';
+}
+function viewApply() {
+  var a = S.apply, ph = phaseInfo(), site = S.site;
+  var h = '<div class="page-bg"><div class="narrow"><div><p class="eyebrow">REGISTRATION</p><h1 class="page">' + (a.edit ? '신청 내용 수정' : '참가 신청') + '</h1></div>';
+  h += '<div class="banner b-' + ph.cls + '" role="status">' + esc(ph.banner) + '</div>';
+  if (a.done) {
+    h += '<section class="card" style="display:flex;flex-direction:column;gap:16px"><div style="display:flex;align-items:center;gap:12px">' +
+      '<svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1E4FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l3 3 5-6"/></svg>' +
+      '<p style="margin:0;font-size:22px;font-weight:900;color:var(--navy)">' + (a.done.edited ? '수정이 저장되었습니다' : '신청이 완료되었습니다') + '</p></div>' +
+      '<p style="margin:0">신청번호 <strong style="color:var(--blue)">' + esc(a.done.no) + '</strong> · 신청 내용은 신청확인 메뉴에서 마감 전까지 수정·취소할 수 있습니다.</p>' +
+      recordSummary(a.done.record) +
+      '<div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn" href="#/check">신청확인으로 이동</a><a class="btn ghost" href="#/">처음 화면으로</a></div></section>';
+    return h + '</div></div>';
+  }
+  if (!canApply() && !a.edit) {
+    var closed = site.phase.state === 'closed';
+    h += '<section class="card lock"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1E4FD8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>' +
+      '<p style="font-size:18px;font-weight:700;color:var(--navy)">' + (closed ? '참가 신청이 마감되었습니다' : '아직 신청 기간이 아닙니다') + '</p>' +
+      '<p class="muted">' + (closed ? '추가 접수가 열리면 이 화면에서 다시 신청할 수 있습니다.' : esc(site.phase.startText) + '부터 신청할 수 있습니다.') + '</p>' +
+      '<a href="#/check" style="font-weight:700">이미 신청하셨다면 신청확인으로 이동</a></section>';
+    return h + '</div></div>';
+  }
+  if (a.error) h += '<div class="err" role="alert">' + esc(a.error) + '</div>';
+  h += '<form id="applyForm" novalidate style="display:flex;flex-direction:column;gap:20px">';
+  // 신청자 정보
+  h += '<section class="card" style="display:flex;flex-direction:column;gap:18px"><h2 style="margin:0;font-size:19px;color:var(--navy)">신청자 정보</h2>' +
+    '<div class="field"><label for="f-org">가. 소속 <span class="req">*</span></label><input class="input" id="f-org" data-bind="org" maxlength="60" placeholder="학교 또는 기관명 (예: ○○고등학교)" value="' + esc(a.org) + '"></div>' +
+    '<fieldset style="border:0;margin:0;padding:0"><legend class="legend" style="padding:0;margin-bottom:8px">나. 직급 <span class="req">*</span></legend><div class="roles">' +
+    ROLES.map(function (r) { return '<label class="' + (a.role === r ? 'on' : '') + '"><input type="radio" name="role" value="' + r + '" data-act="role"' + (a.role === r ? ' checked' : '') + '>' + r + '</label>'; }).join('') +
+    '</div></fieldset><div style="display:flex;flex-wrap:wrap;gap:16px">' +
+    '<div class="field" style="flex:1 1 220px"><label for="f-name">다. 성명 <span class="req">*</span></label><input class="input" id="f-name" data-bind="name" maxlength="20" autocomplete="name" value="' + esc(a.name) + '"' + (a.edit ? ' readonly' : '') + '></div>' +
+    '<div class="field" style="flex:1 1 220px"><label for="f-phone">라. 연락처 <span class="req">*</span></label><input class="input" id="f-phone" data-bind="phone" type="tel" inputmode="numeric" maxlength="13" placeholder="010-0000-0000" autocomplete="tel" value="' + esc(a.phone) + '"' + (a.edit ? ' readonly' : '') + '>' +
+    '<span class="hint">' + (a.edit ? '성명·연락처를 바꾸려면 신청을 취소하고 다시 신청해 주세요.' : '안내 문자 발송과 신청확인 본인 확인에 쓰입니다.') + '</span></div></div></section>';
+  // 세션 선택
+  var fulls = sessionsBy('연강');
+  h += '<section class="card" style="display:flex;flex-direction:column;gap:18px"><h2 style="margin:0;font-size:19px;color:var(--navy)">마. 세션 선택 <span class="req">*</span></h2>' +
+    '<div class="howto"><p style="margin:0 0 8px;font-weight:700;color:var(--blue)">세션 선택 방법</p><ol>' +
+    '<li>분과 세션은 1차(' + esc((sessionsBy('1차')[0] || {}).start || '14:40') + ')와 2차(' + esc((sessionsBy('2차')[0] || {}).start || '15:25') + ') 두 번 진행됩니다.</li>' +
+    '<li>시간대마다 듣고 싶은 순서대로 최대 3개를 누르세요. 누른 순서대로 1·2·3지망이 되며, 시간대별 1지망은 꼭 골라야 합니다.</li>' +
+    '<li>지망 순서와 신청 순서를 기준으로 시간대별 1개씩, 총 2개 세션을 배정합니다. 내용을 수정해도 신청 순서는 유지됩니다.</li>' +
+    (fulls.length ? '<li>' + fulls.map(function (s) { return esc(s.code); }).join('·') + '(' + esc(fulls[0].group || '') + ')은 ' + esc(fulls[0].start) + '~' + esc(fulls[0].end) + ' 연강입니다. 고르면 1·2차가 모두 이 세션으로 신청되고, 마감될 때 들을 세션을 시간대별로 1개씩 골라 주세요.</li>' : '') +
+    '<li>배정 결과는 안내 문자와 \'참가신청결과확인\' 메뉴로 알려 드립니다.</li></ol></div>';
+  if (a.askFull) {
+    h += '<div class="ask" role="alertdialog" aria-label="연강 선택 확인"><p style="margin:0;flex:1 1 280px;font-weight:500">' + esc(a.askFull) + '을(를) 고르면 지금까지 선택한 세션이 모두 해제됩니다. 계속할까요?</p>' +
+      '<button type="button" class="btn" data-act="fullYes">계속</button><button type="button" class="btn ghost" data-act="fullNo">취소</button></div>';
+  }
+  if (!a.full) h += slotBox('s1', '1차 ' + ((sessionsBy('1차')[0] || {}).start || '') + '~' + ((sessionsBy('1차')[0] || {}).end || '')) + slotBox('s2', '2차 ' + ((sessionsBy('2차')[0] || {}).start || '') + '~' + ((sessionsBy('2차')[0] || {}).end || ''));
+  fulls.forEach(function (s) {
+    var on = a.full === s.code;
+    h += '<div class="full-wrap' + (on ? ' on' : '') + '"><div class="slot"><div class="hd soft"><span style="font-weight:700">연강 ' + esc(s.start) + '~' + esc(s.end) + '</span></div>' +
+      '<button type="button" class="row' + (on ? ' on' : '') + '" data-act="full" data-v="' + esc(s.code) + '" aria-pressed="' + on + '"><span class="box" aria-hidden="true">' + (on ? '✓' : '') + '</span>' +
+      '<span class="main"><span class="l1"><strong>' + esc(s.code) + '</strong>' + lv(s.level) + '<span class="tt">' + esc(s.short) + '</span></span><span class="l2">' + esc(whoOf(s)) + '</span></span>' +
+      '<span style="font-size:14px;font-weight:700;color:var(--blue);white-space:nowrap">' + (on ? '해제' : '선택') + '</span></button></div></div>';
+  });
+  if (a.full) {
+    h += '<div class="alts"><p style="margin:0;font-weight:700;color:var(--warn-ink)">' + esc(a.full) + ' 마감 시 대체 희망 · 시간대별로 1개씩 골라 주세요</p>';
+    [['alt1', '1차', sessionsBy('1차')], ['alt2', '2차', sessionsBy('2차')]].forEach(function (g) {
+      h += '<fieldset style="border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:6px"><legend class="legend" style="padding:0;margin-bottom:6px">' + g[1] + ' ' + esc((g[2][0] || {}).start || '') + '</legend>' +
+        g[2].map(function (s) {
+          var on = a[g[0]] === s.code;
+          return '<label class="alt' + (on ? ' on' : '') + '"><input type="radio" name="' + g[0] + '" value="' + esc(s.code) + '" data-act="alt" data-k="' + g[0] + '"' + (on ? ' checked' : '') + '>' +
+            '<span><strong style="color:var(--blue)">' + esc(s.code) + '</strong> ' + esc(s.short) + ' <span class="muted">· ' + esc(whoOf(s)) + '</span></span></label>';
+        }).join('') + '</fieldset>';
+    });
+    h += '<p style="margin:0;font-size:14px;color:var(--warn-ink)">' + esc(a.full) + ' 정원이 차면 위에서 고른 두 세션으로 배정됩니다.</p></div>';
+  }
+  h += '</section>';
+  // 질문, 동의
+  h += '<section class="card" style="display:flex;flex-direction:column;gap:8px"><label class="legend" for="f-q">바. IB 프로그램 운영 또는 강연자에게 하고 싶은 질문 <span style="font-weight:400;color:var(--muted)">(선택)</span></label>' +
+    '<textarea class="input" id="f-q" data-bind="question" maxlength="1000" rows="4" placeholder="세션 발표자나 기조강연자에게 묻고 싶은 내용을 자유롭게 적어 주세요.">' + esc(a.question) + '</textarea></section>';
+  h += '<section class="card" style="display:flex;flex-direction:column;gap:12px;padding-top:22px;padding-bottom:22px"><div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px">' +
+    '<label class="consent"><input type="checkbox" data-act="consent"' + (a.consent ? ' checked' : '') + '>사. 개인정보 수집·이용에 동의합니다. <span class="req">(필수)</span></label>' +
+    '<button type="button" class="linkbtn" data-act="terms" aria-expanded="' + a.terms + '">' + (a.terms ? '내용 접기 ▴' : '내용 보기 ▾') + '</button></div>' +
+    (a.terms ? '<ul class="terms"><li>수집 항목: 소속, 직급, 성명, 연락처</li><li>이용 목적: 콘퍼런스 참가 신청 접수, 세션 배정, 안내 문자 발송</li>' +
+      '<li>보유 기간: 행사 종료 후 1개월(' + esc(site.config.keepUntil) + ')까지 보관 후 파기</li><li>동의를 거부할 수 있으며, 거부 시 참가 신청이 제한됩니다.</li></ul>' : '') + '</section>';
+  var miss = missingOf(a);
+  h += '<div class="submit-area"><p class="hint" id="missing" style="margin:0">' + (miss.length ? '남은 항목: ' + esc(miss.join(', ')) : '&nbsp;') + '</p>' +
+    '<button type="submit" class="btn" id="submitBtn"' + (miss.length || a.busy ? ' disabled' : '') + '>' + (a.busy ? '처리 중…' : (a.edit ? '수정 저장' : '신청하기')) + '</button>' +
+    (a.edit ? '<a href="#/check" class="linkbtn">수정하지 않고 돌아가기</a>' : '') + '</div></form>';
+  return h + '</div></div>';
+}
+function recordSummary(r) {
+  if (!r) return '';
+  var lines = [];
+  lines.push(esc(r.org) + ' · ' + esc(r.role) + ' · ' + esc(r.name) + (r.phoneMasked ? ' · ' + esc(r.phoneMasked) : ''));
+  if (r.full) { lines.push('1·2차: ' + esc(r.full) + ' (연강)'); lines.push(esc(r.full) + ' 마감 시: 1차 ' + esc(r.alt1) + ' / 2차 ' + esc(r.alt2)); }
+  else { lines.push('1차 지망: ' + r.s1.map(function (c, i) { return CIRCLED[i] + ' ' + esc(c); }).join(' → ')); lines.push('2차 지망: ' + r.s2.map(function (c, i) { return CIRCLED[i] + ' ' + esc(c); }).join(' → ')); }
+  if (r.question) lines.push('질문: ' + esc(r.question));
+  return '<div style="background:var(--sky);border-radius:12px;padding:16px 18px;font-size:15px;display:flex;flex-direction:column;gap:4px">' + lines.map(function (l) { return '<p style="margin:0;white-space:pre-line">' + l + '</p>'; }).join('') + '</div>';
+}
+function submitApply() {
+  var a = S.apply;
+  if (missingOf(a).length || a.busy) return;
+  a.busy = true; a.error = ''; render();
+  var payload = { org: a.org, role: a.role, name: a.edit ? a.edit.name : a.name, phone: a.edit ? a.edit.phone : a.phone, question: a.question, consent: a.consent };
+  if (a.full) { payload.full = a.full; payload.alt1 = a.alt1; payload.alt2 = a.alt2; } else { payload.s1 = a.s1; payload.s2 = a.s2; }
+  apiPost(a.edit ? 'update' : 'apply', payload).then(function (res) {
+    a.busy = false;
+    if (res.ok) { a.done = { no: res.no, record: res.record, edited: !!a.edit }; S.check.record = null; S.check.step = 'lookup'; }
+    else a.error = res.message || '처리하지 못했습니다.';
+    render(); window.scrollTo(0, 0);
+  });
+}
+
+/* ---------- 신청확인 ---------- */
+function viewCheck() {
+  var c = S.check, site = S.site;
+  var h = '<div class="page-bg"><div class="narrow" style="max-width:720px"><div><p class="eyebrow">MY REGISTRATION</p><h1 class="page">신청확인 · 수정 · 취소</h1></div>';
+  if (site.resultOpen) h += '<a href="#/result" class="btn" style="justify-content:flex-start">세션 배정 결과가 공개되었습니다. 참가신청결과확인에서 확인하세요 →</a>';
+  if (c.error) h += '<div class="err" role="alert">' + esc(c.error) + '</div>';
+  if (c.step === 'lookup') {
+    h += lookupForm('check', c, '조회');
+  } else if (c.step === 'cancelled') {
+    h += '<section class="card" style="display:flex;flex-direction:column;gap:12px;align-items:flex-start"><p style="margin:0;font-size:20px;font-weight:900;color:var(--navy)">신청이 취소되었습니다</p>' +
+      '<p class="muted" style="margin:0">신청 기간 안에는 다시 신청할 수 있습니다. 다시 신청하면 새 신청번호를 받습니다.</p>' +
+      '<div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn" href="#/apply">다시 신청하기</a><button type="button" class="btn ghost" data-act="checkReset">처음으로</button></div></section>';
+  } else {
+    var r = c.record;
+    h += '<section class="card" style="display:flex;flex-direction:column;gap:16px"><div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline">' +
+      '<p style="margin:0;font-weight:900;font-size:18px;color:var(--navy)">신청번호 ' + esc(r.no) + (r.state === '취소' ? ' <span class="chip" style="background:#EEF2F8;color:#39445A">취소됨</span>' : '') +
+      (r.kind === '추가' ? ' <span class="chip" style="background:var(--warn-bg);color:var(--warn-ink)">추가 접수</span>' : '') + '</p>' +
+      '<p style="margin:0;font-size:14px;color:var(--muted)">신청 ' + esc(r.created) + (r.updated ? ' · 수정 ' + esc(r.updated) : '') + '</p></div>' + recordSummary(r);
+    if (r.state === '취소') {
+      h += '<p style="margin:0" class="muted">취소된 신청입니다.</p>';
+    } else if (r.canEdit && c.step === 'confirm') {
+      h += '<div class="ask" role="alertdialog" aria-label="신청 취소 확인" style="border-color:var(--red)"><p style="margin:0;flex:1 1 260px">신청을 취소하면 되돌릴 수 없습니다. 다시 참가하려면 새로 신청해야 하며 신청 순서도 새로 매겨집니다. 취소할까요?</p>' +
+        '<button type="button" class="btn danger solid" data-act="cancelYes"' + (c.busy ? ' disabled' : '') + '>' + (c.busy ? '처리 중…' : '취소하기') + '</button><button type="button" class="btn ghost" data-act="cancelNo">유지</button></div>';
+    } else if (r.canEdit) {
+      h += '<div style="display:flex;flex-wrap:wrap;gap:10px"><button type="button" class="btn" data-act="edit">수정하기</button><button type="button" class="btn danger" data-act="cancelAsk">신청 취소</button></div>' +
+        '<p style="margin:0;font-size:14px" class="muted">' + (c.endText ? esc(c.endText) + '까지 ' : '마감 전까지 ') + '수정·취소할 수 있습니다. 수정해도 신청 순서는 그대로 유지됩니다. 성명이나 연락처를 바꾸려면 취소 후 다시 신청해 주세요.</p>';
+    } else {
+      h += '<p style="margin:0;padding:14px 16px;border-radius:12px;background:#EEF2F8;color:var(--ink2);font-size:15px">신청이 마감되어 조회만 할 수 있습니다. 변경이 필요하면 담당자에게 문의해 주세요.' + (site.config.contact ? ' (' + esc(site.config.contact) + ')' : '') + '</p>';
+    }
+    h += '<button type="button" class="linkbtn" style="align-self:flex-start" data-act="checkReset">다른 신청 조회</button></section>';
+  }
+  return h + '</div></div>';
+}
+function lookupForm(prefix, st, label) {
+  return '<form class="card" id="' + prefix + 'Form" novalidate style="display:flex;flex-direction:column;gap:16px"><p class="muted" style="margin:0">신청할 때 입력한 성명과 연락처로 조회합니다.</p>' +
+    '<div style="display:flex;flex-wrap:wrap;gap:12px"><div class="field" style="flex:1 1 200px"><label for="' + prefix + '-name">성명</label><input class="input" id="' + prefix + '-name" data-bind2="' + prefix + '.name" autocomplete="name" value="' + esc(st.name) + '"></div>' +
+    '<div class="field" style="flex:1 1 200px"><label for="' + prefix + '-phone">연락처</label><input class="input" id="' + prefix + '-phone" data-bind2="' + prefix + '.phone" type="tel" inputmode="numeric" placeholder="010-0000-0000" value="' + esc(st.phone) + '"></div></div>' +
+    '<button type="submit" class="btn"' + (st.busy ? ' disabled' : '') + '>' + (st.busy ? '조회 중…' : label) + '</button></form>';
+}
+function submitCheck() {
+  var c = S.check;
+  if (!c.name.trim() || c.phone.replace(/\D/g, '').length < 10) { c.error = '성명과 연락처를 정확히 입력해 주세요.'; render(); return; }
+  c.busy = true; c.error = ''; render();
+  apiPost('lookup', { name: c.name, phone: c.phone }).then(function (res) {
+    c.busy = false;
+    if (res.ok) { c.record = res.record; c.endText = res.endText; c.step = 'found'; } else c.error = res.message;
+    render();
+  });
+}
+
+/* ---------- 결과확인 ---------- */
+function viewResult() {
+  var r = S.result, site = S.site;
+  var h = '<div class="page-bg"><div class="narrow" style="max-width:760px"><div><p class="eyebrow">RESULT</p><h1 class="page">참가신청결과확인</h1></div>';
+  if (!site.resultOpen) {
+    h += '<section class="card lock"><p style="font-size:18px;font-weight:700;color:var(--navy)">세션 배정 결과는 아직 공개되지 않았습니다</p><p class="muted">공개되면 상단 메뉴에 \'참가신청결과확인\'이 나타납니다.</p><a href="#/check" style="font-weight:700">신청확인으로 이동</a></section>';
+    return h + '</div></div>';
+  }
+  if (r.error) h += '<div class="err" role="alert">' + esc(r.error) + '</div>';
+  if (r.step === 'lookup') return h + lookupForm('result', r, '결과 확인') + '</div></div>';
+  var d = r.data;
+  h += '<div class="resbig"><p class="s">신청번호 ' + esc(d.no) + ' · ' + esc(d.org) + ' ' + esc(d.name) + ' 선생님</p>' +
+    '<p style="margin:0;font-size:22px;font-weight:900">' + (d.pending ? '배정 결과를 준비하고 있습니다' : '세션 배정이 완료되었습니다') + '</p>' +
+    '<p class="s">' + esc(site.config.when) + ' · ' + esc(site.config.where) + '</p></div>';
+  if (d.fullMissed) h += '<p style="margin:0;padding:14px 16px;border-radius:12px;background:var(--warn-bg);color:var(--warn-ink);border:1px solid var(--warn-line);font-size:15px">연강 세션 신청이 정원을 넘어, 신청 때 고른 대체 희망 세션으로 배정되었습니다.</p>';
+  if (d.pending) h += '<p class="card" style="margin:0">아직 배정되지 않았습니다. 배정이 끝나면 이 화면과 안내 문자로 알려 드립니다.</p>';
+  d.results.forEach(function (x) {
+    h += '<article class="res"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px"><span style="font-size:14px;font-weight:700;color:var(--muted)">' + esc(x.slot) + '</span>' +
+      '<span class="chip" style="background:var(--sky2);color:#1E40AF">' + esc(x.rank) + '</span></div>' +
+      '<p style="margin:0;font-size:19px;font-weight:900;color:var(--navy)"><span style="color:var(--blue)">' + esc(x.code) + '</span> ' + esc(x.title) + '</p>' +
+      '<dl class="dl" style="gap:4px 14px"><dt>시간</dt><dd>' + esc(x.time) + '</dd><dt>장소</dt><dd>' + esc(x.place) + '</dd>' + (x.who ? '<dt>발표</dt><dd>' + esc(x.who) + '</dd>' : '') + '</dl></article>';
+  });
+  h += '<div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn" href="#/materials">강의자료 보기</a><button type="button" class="btn ghost" data-act="resultReset">다른 사람 조회</button></div>';
+  return h + '</div></div>';
+}
+function submitResult() {
+  var r = S.result;
+  if (!r.name.trim() || r.phone.replace(/\D/g, '').length < 10) { r.error = '성명과 연락처를 정확히 입력해 주세요.'; render(); return; }
+  r.busy = true; r.error = ''; render();
+  apiPost('result', { name: r.name, phone: r.phone }).then(function (res) {
+    r.busy = false;
+    if (res.ok) { r.data = res; r.step = 'shown'; } else r.error = res.message;
+    render();
+  });
+}
+
+/* ---------- 강의자료 ---------- */
+function viewMaterials() {
+  var site = S.site;
+  var titles = {};
+  site.schedule.forEach(function (r) { if (/기조/.test(r.kind)) titles['기조강연'] = { t: r.text, w: r.speaker + (r.affil ? ' · ' + r.affil : '') }; });
+  site.sessions.forEach(function (s) { titles[s.code] = { t: s.short, w: whoOf(s) }; });
+  var h = '<div class="page-bg"><div class="narrow" style="max-width:960px"><div><p class="eyebrow">MATERIALS</p><h1 class="page" style="margin-bottom:6px">강의자료</h1>' +
+    '<p class="muted" style="margin:0">자료는 준비되는 대로 세션별로 올라옵니다. 필요한 자료를 미리 내려받아 주세요.</p></div>';
+  if (!site.materials.length) h += '<p class="card" style="margin:0">아직 올라온 자료가 없습니다.</p>';
+  site.materials.forEach(function (g) {
+    var t = titles[g.folder] || { t: '', w: '' };
+    h += '<section class="mgroup"><div class="hd"><span style="font-weight:900;color:var(--blue)">' + esc(g.folder) + '</span><span style="font-weight:700;color:var(--navy);flex:1 1 280px">' + esc(t.t) + '</span><span style="font-size:13px" class="muted">' + esc(t.w) + '</span></div>';
+    if (!g.files.length) h += '<p style="margin:0;padding:14px 18px;font-size:14px" class="muted">준비 중입니다.</p>';
+    g.files.forEach(function (f) {
+      var d = new Date(f.added);
+      h += '<div class="mfile"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1E4FD8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>' +
+        '<span class="nm"><span style="font-weight:500">' + esc(f.name) + '</span>' + (isNew(f.added, 3) ? ' <span class="tag-new">NEW</span>' : '') +
+        '<span style="display:block;font-size:13px" class="muted">' + esc(typeOf(f)) + (f.size ? ' · ' + fmtSize(f.size) : '') + ' · ' + (d.getMonth() + 1) + '.' + d.getDate() + ' 올림</span></span>' +
+        '<a class="dl-btn" href="' + esc(f.url) + '" target="_blank" rel="noopener">내려받기<span class="sr"> ' + esc(f.name) + '</span></a></div>';
+    });
+    h += '</section>';
+  });
+  return h + '</div></div>';
+}
+
+/* ---------- 그리기 ---------- */
+function render() {
+  renderChrome();
+  var app = document.getElementById('app');
+  if (S.error) {
+    app.innerHTML = '<div class="narrow"><div class="err" role="alert">' + esc(S.error) + '</div><button type="button" class="btn" data-act="reload" style="align-self:flex-start">다시 불러오기</button></div>';
+    return;
+  }
+  if (!S.site) { app.innerHTML = '<div class="loading">불러오는 중입니다…</div>'; return; }
+  var v = { home: viewHome, apply: viewApply, check: viewCheck, result: viewResult, materials: viewMaterials }[S.route] || viewHome;
+  var focusId = document.activeElement && document.activeElement.id;
+  app.innerHTML = v();
+  if (focusId && document.getElementById(focusId)) document.getElementById(focusId).focus();
+}
+function afterRender() {
+  if (S.route === 'home' && S.query.scroll) {
+    var el = document.getElementById(S.query.scroll);
+    if (el) el.scrollIntoView();
+  }
+}
+
+/* ---------- 입력 ---------- */
+document.addEventListener('input', function (e) {
+  var t = e.target, k = t.dataset.bind, k2 = t.dataset.bind2;
+  if (k && S.apply) {
+    if (k === 'phone') {
+      var d = t.value.replace(/\D/g, '').slice(0, 11);
+      var f = d.length > 7 ? d.slice(0, 3) + '-' + d.slice(3, d.length - 4) + '-' + d.slice(d.length - 4) : (d.length > 3 ? d.slice(0, 3) + '-' + d.slice(3) : d);
+      if (t.value !== f) t.value = f;
+      S.apply.phone = f;
+    } else S.apply[k] = t.value;
+    var miss = missingOf(S.apply);
+    var m = document.getElementById('missing'), b = document.getElementById('submitBtn');
+    if (m) m.innerHTML = miss.length ? '남은 항목: ' + esc(miss.join(', ')) : '&nbsp;';
+    if (b) b.disabled = miss.length > 0 || S.apply.busy;
+  }
+  if (k2) { var p = k2.split('.'); S[p[0]][p[1]] = t.value; }
+});
+document.addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (e.target.id === 'applyForm') submitApply();
+  if (e.target.id === 'checkForm') submitCheck();
+  if (e.target.id === 'resultForm') submitResult();
+});
+document.addEventListener('change', function (e) {
+  var t = e.target, act = t.dataset.act, a = S.apply;
+  if (!act || !a) return;
+  if (act === 'role') a.role = t.value;
+  else if (act === 'alt') a[t.dataset.k] = t.value;
+  else if (act === 'consent') a.consent = t.checked;
+  else return;
+  render();
+});
+document.addEventListener('click', function (e) {
+  var el = e.target.closest('[data-act]');
+  if (!el || el.tagName === 'INPUT') return;
+  var act = el.dataset.act, v = el.dataset.v, k = el.dataset.k, a = S.apply;
+  switch (act) {
+    case 'reload': init(); return;
+    case 'filter': S.home.filter = v; break;
+    case 'card': S.home.open[v] = !S.home.open[v]; break;
+    case 'pick': {
+      var arr = a[k].slice(), i = arr.indexOf(v);
+      if (i >= 0) arr.splice(i, 1); else if (arr.length < 3) arr.push(v);
+      a[k] = arr; break;
+    }
+    case 'reset': a[k] = []; break;
+    case 'full':
+      if (a.full === v) { a.full = ''; a.alt1 = ''; a.alt2 = ''; }
+      else if (a.s1.length || a.s2.length) a.askFull = v;
+      else a.full = v;
+      break;
+    case 'fullYes': a.full = a.askFull; a.askFull = ''; a.s1 = []; a.s2 = []; break;
+    case 'fullNo': a.askFull = ''; break;
+    case 'terms': a.terms = !a.terms; break;
+    case 'checkReset': S.check = { step: 'lookup', name: '', phone: '', record: null, busy: false, error: '', endText: '' }; break;
+    case 'cancelAsk': S.check.step = 'confirm'; break;
+    case 'cancelNo': S.check.step = 'found'; break;
+    case 'cancelYes': {
+      var c = S.check; c.busy = true; render();
+      apiPost('cancel', { name: c.name, phone: c.phone }).then(function (res) {
+        c.busy = false;
+        if (res.ok) c.step = 'cancelled'; else { c.error = res.message; c.step = 'found'; }
+        render();
+      });
+      return;
+    }
+    case 'edit': {
+      var r = S.check.record, n = newApply();
+      n.edit = { name: S.check.name, phone: S.check.phone };
+      n.org = r.org; n.role = r.role; n.name = r.name; n.phone = r.phoneMasked; n.question = r.question || '';
+      if (r.full) { n.full = r.full; n.alt1 = r.alt1; n.alt2 = r.alt2; } else { n.s1 = r.s1.slice(); n.s2 = r.s2.slice(); }
+      n.consent = true;
+      S.apply = n; location.hash = '#/apply'; return;
+    }
+    case 'resultReset': S.result = { step: 'lookup', name: '', phone: '', data: null, busy: false, error: '' }; break;
+    default: return;
+  }
+  render();
+});
+
+/* ---------- 시작 ---------- */
+function init() {
+  parseRoute();
+  S.error = '';
+  render();
+  if (!apiReady()) { S.error = '관리자 안내: index.html 맨 아래의 API_URL에 Apps Script 웹 앱 주소를 넣어 주세요.'; render(); return; }
+  apiGet().then(function (d) {
+    if (!d || !d.ok) { S.error = (d && d.message) || '사이트 정보를 불러오지 못했습니다.'; render(); return; }
+    S.site = d; onRoute(); render(); afterRender();
+  }).catch(function () { S.error = '사이트 정보를 불러오지 못했습니다. 인터넷 연결을 확인하고 다시 시도해 주세요.'; render(); });
+}
+init();
+</script>
+</body>
+</html>
