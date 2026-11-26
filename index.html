@@ -607,6 +607,7 @@ function recordSummary(r) {
   var lines = [];
   lines.push(esc(r.org) + ' · ' + esc(r.role) + ' · ' + esc(r.name) + (r.phoneMasked ? ' · ' + esc(r.phoneMasked) : ''));
   if (r.full) { lines.push('1·2차: ' + esc(r.full) + ' (연강)'); lines.push(esc(r.full) + ' 마감 시: 1차 ' + esc(r.alt1) + ' / 2차 ' + esc(r.alt2)); }
+  else if (!r.s1.length && !r.s2.length) lines.push('세션 지망: 담당자 직접 접수');
   else { lines.push('1차 지망: ' + r.s1.map(function (c, i) { return CIRCLED[i] + ' ' + esc(c); }).join(' → ')); lines.push('2차 지망: ' + r.s2.map(function (c, i) { return CIRCLED[i] + ' ' + esc(c); }).join(' → ')); }
   if (r.question) lines.push('질문: ' + esc(r.question));
   return '<div style="background:var(--sky);border-radius:12px;padding:16px 18px;font-size:15px;display:flex;flex-direction:column;gap:4px">' + lines.map(function (l) { return '<p style="margin:0;white-space:pre-line">' + l + '</p>'; }).join('') + '</div>';
