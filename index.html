@@ -430,7 +430,7 @@ function programCards() {
   });
   site.schedule.forEach(function (r) {
     if (/라운드/.test(r.kind)) out.push({ key: 'r-' + r.start, code: '라운드테이블', group: '라운드테이블', level: '공통', time: r.start + '~' + r.end,
-      title: r.text, who: '분반별 진행', place: '', target: '전체 참가자', intro: '', pick: '' });
+      title: r.text, who: '분반별 진행', place: rtPlaces(), target: '전체 참가자', intro: rtIntro(), pick: '' });
   });
   return out;
 }
@@ -571,6 +571,37 @@ function viewApply() {
     (a.edit ? '<a href="#/check" class="linkbtn">수정하지 않고 돌아가기</a>' : '') + '</div></form>';
   return h + '</div></div>';
 }
+function rtList() { return (S.site && S.site.roundtables) || []; }
+function rtPlaces() { return rtList().length ? '분반별 강의실 (아래 목록)' : ''; }
+function rtIntro() {
+  var l = rtList();
+  if (!l.length) return '';
+  return '배정된 분반 강의실로 이동해 진행합니다. 내 분반은 신청확인에서 볼 수 있습니다.\n' +
+    l.map(function (x) { return '· ' + x.code + ' ' + x.place + (x.title ? ' — ' + x.title : '') + (x.target ? ' (' + x.target + ')' : ''); }).join('\n');
+}
+function sessionCard(x) {
+  return '<article class="res"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px"><span style="font-size:14px;font-weight:700;color:var(--muted)">' + esc(x.slot) + '</span>' +
+    '<span class="chip" style="background:var(--sky2);color:#1E40AF">' + esc(x.rank) + '</span></div>' +
+    '<p style="margin:0;font-size:19px;font-weight:900;color:var(--navy)"><span style="color:var(--blue)">' + esc(x.code) + '</span> ' + esc(x.title) + '</p>' +
+    '<dl class="dl" style="gap:4px 14px"><dt>시간</dt><dd>' + esc(x.time) + '</dd><dt>장소</dt><dd><strong>' + esc(x.place) + '</strong></dd>' + (x.who ? '<dt>발표</dt><dd>' + esc(x.who) + '</dd>' : '') + '</dl></article>';
+}
+function rtCard(rt) {
+  if (!rt) return '<article class="res" style="border-left-color:var(--muted)"><span style="font-size:14px;font-weight:700;color:var(--muted)">라운드테이블</span>' +
+    '<p style="margin:0;color:var(--ink2)">라운드테이블 분반은 추후 안내합니다.</p></article>';
+  return '<article class="res" style="border-left-color:var(--navy)"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px"><span style="font-size:14px;font-weight:700;color:var(--muted)">라운드테이블' + (rt.time ? ' · ' + esc(rt.time) : '') + '</span>' +
+    '<span class="chip" style="background:var(--sky2);color:#1E40AF">분반 배정</span></div>' +
+    '<p style="margin:0;font-size:22px;font-weight:900;color:var(--navy)"><span style="color:var(--blue)">' + esc(rt.code) + '</span> ' + esc(rt.place) + '</p>' +
+    '<dl class="dl" style="gap:4px 14px">' + (rt.time ? '<dt>시간</dt><dd>' + esc(rt.time) + '</dd>' : '') + '<dt>장소</dt><dd><strong>' + esc(rt.place) + '</strong></dd>' + (rt.title ? '<dt>주제</dt><dd>' + esc(rt.title) + '</dd>' : '') + '</dl></article>';
+}
+function assignBlock(a) {
+  if (!a) return '';
+  if (a.pending) return '<p class="card" style="margin:0">아직 배정되지 않았습니다. 배정이 끝나면 이 화면과 안내 문자로 알려 드립니다. 문의: ' + esc((S.site.config && S.site.config.contact) || '담당자') + '</p>';
+  var h = '';
+  if (a.fullMissed) h += '<p style="margin:0;padding:14px 16px;border-radius:12px;background:var(--warn-bg);color:var(--warn-ink);border:1px solid var(--warn-line);font-size:15px">신청하신 연강 대신 아래 세션으로 배정되었습니다.</p>';
+  a.results.forEach(function (x) { h += sessionCard(x); });
+  h += rtCard(a.rt);
+  return h;
+}
 function recordSummary(r) {
   if (!r) return '';
   var lines = [];
@@ -598,7 +629,7 @@ function submitApply() {
 function viewCheck() {
   var c = S.check, site = S.site;
   var h = '<div class="page-bg"><div class="narrow" style="max-width:720px"><div><p class="eyebrow">MY REGISTRATION</p><h1 class="page">신청확인 · 수정 · 취소</h1></div>';
-  if (site.resultOpen) h += '<a href="#/result" class="btn" style="justify-content:flex-start">세션 배정 결과가 공개되었습니다. 참가신청결과확인에서 확인하세요 →</a>';
+  if (site.resultOpen && c.step === 'lookup') h += '<p style="margin:0;padding:14px 16px;border-radius:12px;background:var(--sky2);color:var(--navy);font-weight:700">세션·라운드테이블 배정 결과가 공개되었습니다. 성명과 연락처로 조회하면 배정된 강의와 강의실을 볼 수 있습니다.</p>';
   if (c.error) h += '<div class="err" role="alert">' + esc(c.error) + '</div>';
   if (c.step === 'lookup') {
     h += lookupForm('check', c, '조회');
@@ -608,6 +639,12 @@ function viewCheck() {
       '<div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn" href="#/apply">다시 신청하기</a><button type="button" class="btn ghost" data-act="checkReset">처음으로</button></div></section>';
   } else {
     var r = c.record;
+    if (r.assign && r.state !== '취소') {
+      h += '<section style="display:flex;flex-direction:column;gap:14px"><div class="resbig"><p class="s">신청번호 ' + esc(r.no) + ' · ' + esc(r.org) + ' ' + esc(r.name) + ' 선생님</p>' +
+        '<p style="margin:0;font-size:22px;font-weight:900">' + (r.assign.pending ? '배정 결과를 준비하고 있습니다' : '나의 배정 결과') + '</p>' +
+        '<p class="s">' + esc(site.config.when) + ' · ' + esc(site.config.where) + '</p></div>' + assignBlock(r.assign) + '</section>' +
+        '<h2 style="margin:8px 0 0;font-size:17px;color:var(--navy)">신청 내용</h2>';
+    }
     h += '<section class="card" style="display:flex;flex-direction:column;gap:16px"><div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline">' +
       '<p style="margin:0;font-weight:900;font-size:18px;color:var(--navy)">신청번호 ' + esc(r.no) + (r.state === '취소' ? ' <span class="chip" style="background:#EEF2F8;color:#39445A">취소됨</span>' : '') +
       (r.kind === '추가' ? ' <span class="chip" style="background:var(--warn-bg);color:var(--warn-ink)">추가 접수</span>' : '') + '</p>' +
@@ -658,14 +695,7 @@ function viewResult() {
   h += '<div class="resbig"><p class="s">신청번호 ' + esc(d.no) + ' · ' + esc(d.org) + ' ' + esc(d.name) + ' 선생님</p>' +
     '<p style="margin:0;font-size:22px;font-weight:900">' + (d.pending ? '배정 결과를 준비하고 있습니다' : '세션 배정이 완료되었습니다') + '</p>' +
     '<p class="s">' + esc(site.config.when) + ' · ' + esc(site.config.where) + '</p></div>';
-  if (d.fullMissed) h += '<p style="margin:0;padding:14px 16px;border-radius:12px;background:var(--warn-bg);color:var(--warn-ink);border:1px solid var(--warn-line);font-size:15px">연강 세션 신청이 정원을 넘어, 신청 때 고른 대체 희망 세션으로 배정되었습니다.</p>';
-  if (d.pending) h += '<p class="card" style="margin:0">아직 배정되지 않았습니다. 배정이 끝나면 이 화면과 안내 문자로 알려 드립니다.</p>';
-  d.results.forEach(function (x) {
-    h += '<article class="res"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px"><span style="font-size:14px;font-weight:700;color:var(--muted)">' + esc(x.slot) + '</span>' +
-      '<span class="chip" style="background:var(--sky2);color:#1E40AF">' + esc(x.rank) + '</span></div>' +
-      '<p style="margin:0;font-size:19px;font-weight:900;color:var(--navy)"><span style="color:var(--blue)">' + esc(x.code) + '</span> ' + esc(x.title) + '</p>' +
-      '<dl class="dl" style="gap:4px 14px"><dt>시간</dt><dd>' + esc(x.time) + '</dd><dt>장소</dt><dd>' + esc(x.place) + '</dd>' + (x.who ? '<dt>발표</dt><dd>' + esc(x.who) + '</dd>' : '') + '</dl></article>';
-  });
+  h += assignBlock({ pending: d.pending, results: d.results || [], rt: d.rt, fullMissed: d.fullMissed });
   h += '<div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn" href="#/materials">강의자료 보기</a><button type="button" class="btn ghost" data-act="resultReset">다른 사람 조회</button></div>';
   return h + '</div></div>';
 }
